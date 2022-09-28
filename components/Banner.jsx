@@ -40,6 +40,15 @@ const Banner = () => {
                     objectFit="cover"
                 />
             </div>
+            <div className="relative w-screen h-screen">
+                <Image
+                    loading="lazy"
+                    src="/assets/images/home_store.jpg"
+                    alt="Banner Image"
+                    layout="fill"
+                    objectFit="cover"
+                />
+            </div>
         </Carousel>
     );
 }

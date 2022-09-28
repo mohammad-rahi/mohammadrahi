@@ -1,8 +1,9 @@
-import Head from 'next/head'
 import React from 'react'
+import Head from 'next/head'
 import Header from '../components/Header'
 import Banner from '../components/Banner'
 import ProductsFeed from '../components/ProductsFeed'
+import Footer from '../components/Footer'
 
 const index = ({ products }) => {
 
@@ -18,17 +19,19 @@ const index = ({ products }) => {
       <div className='bg-[#e9e9e9]'>
         <Header />
 
-        <div className='max-w-screen-2xl mx-auto relative'>
+        <div className='max-w-screen-2xl mx-auto'>
           <Banner />
           <ProductsFeed products={products} />
         </div>
+
+        <Footer />
       </div>
     </>
   )
 }
 
 export async function getServerSideProps(context) {
-  const products = await fetch("http://fakestoreapi.com/products")
+  const products = await fetch("https://api.escuelajs.co/api/v1/products")
     .then(res => res.json())
 
   return {
