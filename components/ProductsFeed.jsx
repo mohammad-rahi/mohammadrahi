@@ -109,8 +109,10 @@ function ProductsFeed({ products }) {
                         card.special && <div className="hidden md:flex justify-center items-center flex-col gap-1 md:gap-5">
                             <div className="bg-white my-1 mx-2 md:mx-7 p-1 md:p-4 flex flex-col w-full">
                                 <p className="text-lg font-normal text-gray-600">Sign in for the best experience</p>
-                                <button className="bg-yellow-400 text-gray-600 my-3 py-2 w-full rounded-md font-normal">Sign in securely</button>
-                                <Link href="/register">
+                                <Link href="/signin">
+                                    <button className="bg-yellow-400 text-gray-600 my-3 py-2 w-full rounded-md font-normal">Sign in securely</button>
+                                </Link>
+                                <Link href="/signin">
                                     <span className="text-sky-300 hover:text-yellow-500 cursor-pointer">Create an account</span>
                                 </Link>
                             </div>
