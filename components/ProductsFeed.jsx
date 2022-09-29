@@ -35,7 +35,7 @@ function ProductsFeed({ products }) {
 
     const ScrollCard = ({ scrollCard }) => {
         return (
-            <div className="mx-2 md:mx-7 my-1 md:my-5 p-1 md:p-4 md:pb-2 bg-white">
+            <div className="mx-2 md:mx-7 my-2 md:my-5 p-1 md:p-4 md:pb-2 bg-white">
                 <h2 className="font-medium md:font-bold text-base md:text-[22px]">
                     {
                         scrollCard.category === "Others" ? <>Top International Sellers for you</> : <>Top Sellers in {scrollCard.category} for you</>
