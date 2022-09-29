@@ -17,6 +17,38 @@
     background: linear-gradient(to bottom, rgba(233 233 233 / 0%) 0%, rgba(233 233 233 / 25%) 25%, rgb(233 233 233 / 100%) 100%);
   }
 
+  @media only screen and (max-width: 768px) {
+    .carousel-slider {
+      /* height: 100vh !important; */
+    }
+
+    .carousel-slider::after {
+      top: 80% !important;
+    }
+  }
+
+  @media only screen and (min-width: 1280px) {
+    .card_special>.product_card:nth-child(4) {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+
+    .product_card:first-child,
+    .product_card:last-child {
+      display: none;
+    }
+  }
+
+  @media only screen and (min-width: 1280px) {
+
+    .product_card:first-child,
+    .product_card:last-child {
+      display: none;
+    }
+  }
+
   .carousel.carousel-slider .control-arrow {
     max-height: 59% !important;
     background: none !important;
@@ -35,16 +67,19 @@
     display: none;
   }
 
-  .products_scrollbar {
+  .products_scrollbar,
+  .card_special {
     scroll-behavior: smooth;
   }
 
-  .products_scrollbar::-webkit-scrollbar {
+  .products_scrollbar::-webkit-scrollbar,
+  .card_special::-webkit-scrollbar {
     height: .5rem !important;
   }
 
   .products_scrollbar:hover::-webkit-scrollbar-thumb,
-  .scroll_left:hover+.products_scrollbar::-webkit-scrollbar-thumb {
+  .card_special:hover::-webkit-scrollbar-thumb,
+  .scroll_handler:hover+.products_scrollbar::-webkit-scrollbar-thumb {
     background: #ccc !important;
     border-radius: 10px !important;
   }
@@ -58,6 +93,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: #e9e9e9;
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 a {

@@ -4,52 +4,89 @@ import { Carousel } from 'react-responsive-carousel';
 
 const Banner = () => {
     return (
-        <Carousel
-            autoPlay
-            infiniteLoop
-            showStatus={false}
-            showIndicators={false}
-            showThumbs={false}
-            interval={5000}
-            className="select-none carousel-slider"
-        >
-            <div className="relative w-screen h-screen">
+        <>
+            {/* For Large Devices */}
+            <Carousel
+                autoPlay
+                infiniteLoop
+                showStatus={false}
+                showIndicators={false}
+                showThumbs={false}
+                interval={5000}
+                className="select-none carousel-slider hidden md:block"
+            >
+                <div className="relative w-screen h-screen">
+                    <Image
+                        loading="lazy"
+                        src="/assets/images/electronics.jpg"
+                        alt="Banner Image"
+                        layout="fill"
+                        objectFit="cover"
+                    />
+                </div>
+                <div className="relative w-screen h-screen">
+                    <Image
+                        loading="lazy"
+                        src="/assets/images/toy_game.jpg"
+                        alt="Banner Image"
+                        layout="fill"
+                        objectFit="cover"
+                    />
+                </div>
+                <div className="relative w-screen h-screen">
+                    <Image
+                        loading="lazy"
+                        src="/assets/images/we_provide.jpg"
+                        alt="Banner Image"
+                        layout="fill"
+                        objectFit="cover"
+                    />
+                </div>
+                <div className="relative w-screen h-screen">
+                    <Image
+                        loading="lazy"
+                        src="/assets/images/home_store.jpg"
+                        alt="Banner Image"
+                        layout="fill"
+                        objectFit="cover"
+                    />
+                </div>
+            </Carousel>
+
+            {/* For Small Devices */}
+            <Carousel
+                autoPlay
+                infiniteLoop
+                showStatus={false}
+                showIndicators={false}
+                showThumbs={false}
+                showArrows={false}
+                interval={5000}
+                className="select-none carousel-slider md:hidden"
+            >
                 <Image
-                    loading="lazy"
-                    src="/assets/images/electronics.jpg"
+                    src="/assets/images/md-we_provide.jpeg"
                     alt="Banner Image"
-                    layout="fill"
+                    width="768"
+                    height="700"
                     objectFit="cover"
                 />
-            </div>
-            <div className="relative w-screen h-screen">
                 <Image
-                    loading="lazy"
-                    src="/assets/images/toy_game.jpg"
+                    src="/assets/images/md-kitchen.jpeg"
                     alt="Banner Image"
-                    layout="fill"
+                    width="768"
+                    height="700"
                     objectFit="cover"
                 />
-            </div>
-            <div className="relative w-screen h-screen">
                 <Image
-                    loading="lazy"
-                    src="/assets/images/we_provide.jpg"
+                    src="/assets/images/md-gammers.jpg"
                     alt="Banner Image"
-                    layout="fill"
+                    width="768"
+                    height="550"
                     objectFit="cover"
                 />
-            </div>
-            <div className="relative w-screen h-screen">
-                <Image
-                    loading="lazy"
-                    src="/assets/images/home_store.jpg"
-                    alt="Banner Image"
-                    layout="fill"
-                    objectFit="cover"
-                />
-            </div>
-        </Carousel>
+            </Carousel>
+        </>
     );
 }
 

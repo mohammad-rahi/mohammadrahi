@@ -51,19 +51,19 @@ const Footer = () => {
                 </div>
                 <div className="grid lg:hidden grid-cols-2 text-sm py-4 px-3">
                     <div>
-                        <p className="cursor-pointer my-2">Amazon.com</p>
-                        <p className="cursor-pointer my-2">Your Lists</p>
-                        <p className="cursor-pointer my-2">Find a Gift</p>
-                        <p className="cursor-pointer my-2">Browsing History</p>
-                        <p className="cursor-pointer my-2">Returns</p>
+                        <p className="cursor-pointer my-3">Amazon.com</p>
+                        <p className="cursor-pointer my-3">Your Lists</p>
+                        <p className="cursor-pointer my-3">Find a Gift</p>
+                        <p className="cursor-pointer my-3">Browsing History</p>
+                        <p className="cursor-pointer my-3">Returns</p>
                     </div>
                     <div>
-                        <p className="cursor-pointer my-2">Your Orders</p>
-                        <p className="cursor-pointer my-2">Gift Cards &amp; Registry</p>
-                        <p className="cursor-pointer my-2">Your Account</p>
-                        <p className="cursor-pointer my-2">Sell products on Amazon</p>
-                        <p className="cursor-pointer my-2">Your Recalls and Product Safety Alerts</p>
-                        <p className="cursor-pointer my-2">Customar Service</p>
+                        <p className="cursor-pointer my-3">Your Orders</p>
+                        <p className="cursor-pointer my-3">Gift Cards &amp; Registry</p>
+                        <p className="cursor-pointer my-3">Your Account</p>
+                        <p className="cursor-pointer my-3">Sell products on Amazon</p>
+                        <p className="cursor-pointer my-3">Your Recalls and Product Safety Alerts</p>
+                        <p className="cursor-pointer my-3">Customar Service</p>
                     </div>
                 </div>
                 <span className="h-0 lg:h-[1px] bg-slate-600 block" ></span>
@@ -266,7 +266,10 @@ const Footer = () => {
                         Bangladesh
                     </div>
                 </div>
-                <div className="text-center text-xs flex flex-col mt-4">
+                <div className="lg:hidden text-center mt-8">
+                    <span className="cursor-pointer">Already a customar? Sign in</span>
+                </div>
+                <div className="text-center text-xs flex flex-col mt-3">
                     <div className="flex justify-center gap-4">
                         <p className="hover:underline cursor-pointer my-2">Conditions of Use</p>
                         <p className="hover:underline cursor-pointer my-2">Privacy Notice</p>
