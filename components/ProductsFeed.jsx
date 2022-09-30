@@ -19,13 +19,13 @@ function ProductsFeed({ products }) {
     const ScrollCardButton = ({ angle, index }) => {
         return (
             <button
-                className={`scroll_handler p-1 h-32 ${angle === "left" ? "rounded-r-md left-0" : "rounded-l-md right-0"} text-white cursor-pointer absolute bg-[#00000050] hover:bg-[#00000080] transition z-10 hidden md:block`}
+                className={`scroll_handler border p-1 h-16 md:h-32 ${angle === "left" ? "rounded-r-md left-0" : "rounded-l-md right-0"} text-white cursor-pointer absolute bg-[#00000050] hover:bg-[#00000080] transition z-10`}
                 onClick={() => scroll((angle === "left" ? "prev" : "next"), index)}
             >
                 {
-                    angle === "left" ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8">
+                    angle === "left" ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 md:w-8">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                    </svg> : <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8">
+                    </svg> : <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 md:w-8">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                     </svg>
                 }
@@ -112,12 +112,12 @@ function ProductsFeed({ products }) {
                                 <Link href="/signin">
                                     <button className="bg-yellow-400 text-gray-600 my-3 py-2 w-full rounded-md font-normal">Sign in securely</button>
                                 </Link>
-                                <Link href="/signin">
+                                <Link href="/register">
                                     <span className="text-sky-300 hover:text-yellow-500 cursor-pointer">Create an account</span>
                                 </Link>
                             </div>
 
-                            <figure className="relative w-full h-40 md:h-80 bg-gray-100 cursor-pointer">
+                            <figure className="relative w-full h-40 md:h-64 bg-gray-100 cursor-pointer">
                                 <Image
                                     src="/assets/images/products.jpg"
                                     alt="Products"
@@ -152,7 +152,9 @@ function ProductsFeed({ products }) {
 
             <div className="bg-white m-2 p-2 flex md:hidden flex-col items-start">
                 <p className="text-lg font-normal text-gray-600">Sign in for the best experience</p>
-                <button className="bg-yellow-400 text-gray-600 my-3 py-2 w-full rounded-md font-normal">Sign in securely</button>
+                <Link href="/signin">
+                    <button className="bg-yellow-400 text-gray-600 my-3 py-2 w-full rounded-md font-normal">Sign in securely</button>
+                </Link>
                 <Link href="/register">
                     <span className="text-sky-300 hover:text-yellow-500 cursor-pointer">Create an account</span>
                 </Link>
@@ -163,10 +165,26 @@ function ProductsFeed({ products }) {
                 scrollCard1={{ category: "Electronics", index: 0 }}
                 scrollCard2={{ category: "Others", cardStart: 0, cardEnd: 15, index: 1 }} />
 
+            <div className="relative mx-2 md:mx-7 h-44 sm:h-60 md:h-96 lg:h-[30rem] mb-2 md:mb-5">
+                <Image
+                    src="/assets/images/toy_games.jpg"
+                    layout="fill"
+                    alt="Banner"
+                />
+            </div>
+
             <ProductStructure
                 card={{ start: 11, end: 17 }}
                 scrollCard1={{ category: "Shoes", index: 2 }}
                 scrollCard2={{ category: "Clothes", index: 3 }} />
+
+            <div className="relative mx-2 md:mx-7 h-44 sm:h-60 md:h-96 lg:h-[30rem] mb-2 md:mb-5">
+                <Image
+                    src="/assets/images/home_store.jpg"
+                    layout="fill"
+                    alt="Banner"
+                />
+            </div>
 
             <ProductStructure
                 card={{ start: 17, end: 23 }}

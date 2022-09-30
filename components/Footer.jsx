@@ -1,13 +1,19 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
     return (
         <footer className="text-white">
             <a
                 href="#"
-                className="p-4 bg-[#37475a] hover:bg-[#3f4f5f] text-sm font-medium text-center select-none block"
+                className="p-2 lg:p-4 bg-[#37475a] hover:bg-[#3f4f5f] text-sm font-medium text-center select-none block"
             >
-                Back to Top
+                <span className="flex flex-col items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 lg:hidden">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                    </svg>
+                    Back to Top
+                </span>
             </a>
             <div className="bg-[#232f3e]">
                 <div className="hidden lg:grid grid-cols-4 max-w-4xl mx-auto py-10">
@@ -267,7 +273,9 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="lg:hidden text-center mt-8">
-                    <span className="cursor-pointer">Already a customar? Sign in</span>
+                    <Link href="/signin">
+                        <span className="cursor-pointer">Already a customar? Sign in</span>
+                    </Link>
                 </div>
                 <div className="text-center text-xs flex flex-col mt-3">
                     <div className="flex justify-center gap-4">
@@ -275,7 +283,7 @@ const Footer = () => {
                         <p className="hover:underline cursor-pointer my-2">Privacy Notice</p>
                         <p className="hover:underline cursor-pointer my-2">Interest-Based Ads</p>
                     </div>
-                    <div className="-mt-1">© 1996-2022, Amazon.com, Inc. or its affiliates</div>
+                    <div className="-mt-1">© 1996-{(new Date()).getFullYear()}, Amazon.com, Inc. or its affiliates</div>
                 </div>
             </div>
         </footer>

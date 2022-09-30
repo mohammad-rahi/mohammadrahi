@@ -92,11 +92,12 @@ const Header = () => {
 
                     {/* Others */}
                     <div className="others text-white flex items-center justify-end text-xs space-x-8 whitespace-nowrap relative w-[65%] sm:w-3/4 md:w-auto">
-                        <div className='border border-transparent hover:border-white cursor-pointer py-1 select-none px-1'>
-                            <p>Hello, Sign In</p>
-                            <p className='font-bold text-sm hidden lg:block'>Accounts &amp; Lists</p>
-                        </div>
-
+                        <Link href="/signin">
+                            <div className='border border-transparent hover:border-white cursor-pointer py-1 select-none px-1'>
+                                <p>Hello, Sign In</p>
+                                <p className='font-bold text-sm hidden lg:block'>Accounts &amp; Lists</p>
+                            </div>
+                        </Link>
                         <div className='hidden lg:block border border-transparent hover:border-white cursor-pointer py-1 select-none px-1'>
                             <p>Returns</p>
                             <p className='font-bold text-sm'>&amp; Orders</p>

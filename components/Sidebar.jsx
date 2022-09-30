@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Sidebar = () => {
@@ -9,12 +10,14 @@ const Sidebar = () => {
             <div className='flex relative'>
                 <div className='h-screen fixed w-[85%] max-w-xs min-w-[200px] sm:w-96 sm:max-w-none bg-white'>
                     <div className="sidebar_header text-xl font-medium bg-black py-2 pl-8 select-none">
-                        <p className='flex gap-2 items-center'>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8">
-                                <path fillRule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clipRule="evenodd" />
-                            </svg>
-                            Hello, sign in
-                        </p>
+                        <Link href="/signin">
+                            <p className='flex gap-2 items-center cursor-pointer'>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8">
+                                    <path fillRule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clipRule="evenodd" />
+                                </svg>
+                                Hello, sign in
+                            </p>
+                        </Link>
                     </div>
 
                     <div className="sidebar_menu text-black overflow-y-scroll h-full select-none">
@@ -178,9 +181,11 @@ const Sidebar = () => {
                                 <li className='pl-8 py-3 cursor-pointer pr-4 hover:bg-gray-200'>
                                     Customer Service
                                 </li>
-                                <li className='pl-8 py-3 cursor-pointer pr-4 hover:bg-gray-200'>
-                                    Sign in
-                                </li>
+                                <Link href="/signin">
+                                    <li className='pl-8 py-3 cursor-pointer pr-4 hover:bg-gray-200'>
+                                        Sign in
+                                    </li>
+                                </Link>
                             </ul>
                             <br /><br /><br />
                         </div>

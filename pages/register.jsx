@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useReducer, useRef } from "react";
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "next/router";
 
 const SET_ERROR = "SET_ERROR";
 
@@ -16,8 +17,11 @@ const initialState = {
 
 const reducer = (state, action) => {
     switch (action.type) {
-        case "":
-
+        case SET_ERROR:
+            return {
+                ...state,
+                error: action.payload
+            }
             break;
 
         default:
@@ -28,6 +32,7 @@ const reducer = (state, action) => {
 
 function Register() {
     const [state, dispatch] = useReducer(reducer, initialState);
+    const router = useRouter();
 
     const nameRef = useRef();
     const emailRef = useRef();
@@ -43,6 +48,29 @@ function Register() {
         if (nameRef.current.value && emailRef.current.value && passwordRef.current.value && rePasswordRef.current.value) {
             if (passwordRef.current.value.length >= 6 && passwordRef.current.value === rePasswordRef.current.value) {
                 createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
+                    .then((userCredential) => {
+                        userCredential.user.displayName = nameRef.current.value;
+                        // console.log(userCredential)
+                        router.push("/");
+                        dispatch({
+                            type: SET_ERROR,
+                            payload: ""
+                        });
+                    })
+                    .catch((error) => {
+                        if (error.message === "Firebase: Error (auth/email-already-in-use).") {
+                            dispatch({
+                                type: SET_ERROR,
+                                payload: "Email already in use."
+                            });
+                        }
+                        else {
+                            dispatch({
+                                type: SET_ERROR,
+                                payload: error.message
+                            });
+                        }
+                    })
             }
             else {
                 dispatch({
@@ -72,6 +100,11 @@ function Register() {
 
                         <div>
                             <form className="border rounded p-5 w-[90vw] max-w-sm registraion_form" autoComplete="off" onSubmit={handleCreateAccount}>
+                                {
+                                    state.error && <div className="bg-red-200 rounded p-1 px-2 mb-1 text-sm">
+                                        <p className="text-red-600"><strong>Error: </strong>{state.error}</p>
+                                    </div>
+                                }
                                 <h2 className="font-normal text-3xl mb-4">Create account</h2>
                                 <div className="flex flex-col mb-2">
                                     <label htmlFor="name" className="font-bold text-sm mb-1">Your name</label>
@@ -105,10 +138,10 @@ function Register() {
                                     />
                                 </div>
                                 <div className="flex flex-col mb-2">
-                                    <label htmlFor="password" className="font-bold text-sm mb-1">Re-enter Password</label>
+                                    <label htmlFor="re-password" className="font-bold text-sm mb-1">Re-enter Password</label>
                                     <input
                                         type="password"
-                                        id="password"
+                                        id="re-password"
                                         ref={rePasswordRef}
                                         required
                                         className="border transition focus:outline-none border-gray-400 px-2 py-1 text-sm rounded"

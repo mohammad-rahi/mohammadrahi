@@ -4,8 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useRouter } from "next/router";
 
 function SignIn() {
+    const router = useRouter();
+
     const emailRef = useRef("");
     const passwordRef = useRef("");
     const [error, setError] = useState(null);
@@ -19,12 +22,15 @@ function SignIn() {
         if (emailRef.current.value && passwordRef.current.value.length >= 6) {
             signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
                 .then(res => {
-                    console.log(res)
+                    router.push("/")
                     setError(null)
                 })
                 .catch(err => {
                     if (err.message === "Firebase: Error (auth/user-not-found).") {
                         setError("User not found.")
+                    }
+                    else if (err.message === "Firebase: Error (auth/wrong-password).") {
+                        setError("Invalid password");
                     }
                     else {
                         setError(err.message)
@@ -32,7 +38,7 @@ function SignIn() {
                 })
         }
         else {
-            setError("Password should be at least 6 characters");
+            setError("Invalid password");
         }
     };
 
@@ -83,7 +89,7 @@ function SignIn() {
 
                                 <p className="text-xs mt-4">By continuing, you agree to Amazon&apos;s <span className="text-sky-500 hover:text-red-600 hover:underline cursor-pointer">Conditions of Use</span> and <span className="text-sky-500 hover:text-red-600 hover:underline cursor-pointer">Privacy Notice</span>.</p>
 
-                                <p className="text-sm text-sky-500 hover:text-red-600 hover:underline flex items-center mt-6">
+                                <p className="text-sm text-sky-500 hover:text-red-600 hover:underline flex items-center mt-6 w-fit cursor-pointer">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 mr-1">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                                     </svg>

@@ -27,8 +27,8 @@
     }
   }
 
-  @media only screen and (min-width: 1280px) {
-    .card_special>.product_card:nth-child(4) {
+  @media only screen and (max-width: 1024px) and (min-width: 768px) {
+    .card_special>.product_card:nth-child(2) {
       display: none;
     }
   }
@@ -44,7 +44,8 @@
   @media only screen and (min-width: 1280px) {
 
     .product_card:first-child,
-    .product_card:last-child {
+    .product_card:last-child,
+    .card_special>.product_card:nth-child(4) {
       display: none;
     }
   }
@@ -102,7 +103,7 @@
     height: 1px;
     background: rgba(0 0 0 / 20%);
   }
-  
+
   .side_border::after {
     content: "";
     position: absolute;
