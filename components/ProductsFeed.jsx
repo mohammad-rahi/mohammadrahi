@@ -135,11 +135,22 @@ function ProductsFeed({ products }) {
                 }
 
                 {
-                    scrollCard2 && <ScrollCard scrollCard={scrollCard2} />
+                    scrollCard2 && <>
+                        <ScrollCard scrollCard={scrollCard2} />
+
+                        <div className="relative mx-2 md:mx-7 h-44 sm:h-60 md:h-96 lg:h-[30rem] mb-2 md:mb-5">
+                            <Image
+                                src={scrollCard2.src}
+                                layout="fill"
+                                alt="Banner"
+                            />
+                        </div>
+                    </>
                 }
 
                 {
                     scrollCard3 && <ScrollCard scrollCard={scrollCard3} />
+
                 }
             </>
         );
@@ -163,33 +174,17 @@ function ProductsFeed({ products }) {
             <ProductStructure
                 card={{ start: 5, end: 11 }}
                 scrollCard1={{ category: "Electronics", index: 0 }}
-                scrollCard2={{ category: "Others", cardStart: 0, cardEnd: 15, index: 1 }} />
-
-            <div className="relative mx-2 md:mx-7 h-44 sm:h-60 md:h-96 lg:h-[30rem] mb-2 md:mb-5">
-                <Image
-                    src="/assets/images/toy_games.jpg"
-                    layout="fill"
-                    alt="Banner"
-                />
-            </div>
+                scrollCard2={{ category: "Others", cardStart: 0, cardEnd: 15, index: 1, src: "/assets/images/toy_games.jpg" }} />
 
             <ProductStructure
                 card={{ start: 11, end: 17 }}
                 scrollCard1={{ category: "Shoes", index: 2 }}
-                scrollCard2={{ category: "Clothes", index: 3 }} />
-
-            <div className="relative mx-2 md:mx-7 h-44 sm:h-60 md:h-96 lg:h-[30rem] mb-2 md:mb-5">
-                <Image
-                    src="/assets/images/home_store.jpg"
-                    layout="fill"
-                    alt="Banner"
-                />
-            </div>
+                scrollCard2={{ category: "Clothes", index: 3, src: "/assets/images/home_store.jpg" }} />
 
             <ProductStructure
                 card={{ start: 17, end: 23 }}
                 scrollCard1={{ category: "Others", cardStart: 15, cardEnd: 30, index: 4 }}
-                scrollCard2={{ category: "Furniture", index: 5 }}
+                scrollCard2={{ category: "Furniture", index: 5, src: "/assets/images/toy_games.jpg" }}
                 scrollCard3={{ category: "Others", cardStart: 30, cardEnd: 43, index: 6 }} />
 
         </div>
