@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Head from 'next/head'
 import Header from '../components/Header'
 import Banner from '../components/Banner'
 import ProductsFeed from '../components/ProductsFeed'
 import Footer from '../components/Footer'
+import { ProductsContext } from '../context/ProductsContext'
 
-const index = ({ products }) => {
+const index = () => {
+  const { products } = useContext(ProductsContext);
 
   return (
     <>
@@ -21,26 +23,13 @@ const index = ({ products }) => {
 
         <div className='max-w-screen-2xl mx-auto'>
           <Banner />
-          <ProductsFeed products={products} />
+          <ProductsFeed products={products} home />
         </div>
 
         <Footer />
       </div>
     </>
   )
-}
-
-export async function getServerSideProps(context) {
-  // const products = await fetch(`https://api.escuelajs.co/api/v1/products`)
-
-  const products = await fetch("https://amazon-mohammad-rahi.vercel.app/api/products")
-    .then(res => res.json())
-
-  return {
-    props: {
-      products
-    },
-  }
 }
 
 export default index

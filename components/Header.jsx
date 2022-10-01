@@ -1,21 +1,27 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useContext } from 'react'
+import { AuthContext } from '../context/AuthContext'
 import Sidebar from './Sidebar'
 
 const Header = ({ bottomNotRequired }) => {
+    const { user } = useContext(AuthContext);
+
     return (
         <header>
-            <div className='overflow-hidden'>
+            <div>
                 {/* Header Top */}
                 <div className='bg-[#232f3e] md:bg-[#131921] flex items-center p-1 px-2 flex-grow'>
                     {/* Header Left */}
-                    <div onClick={() => document.querySelector("#sidebar").classList.toggle("hidden")} className='block md:hidden border border-transparent hover:border-white cursor-pointer p-1 text-white'>
-                        <p className='flex items-center gap-1 font-bold'>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6">
-                                <path fillRule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clipRule="evenodd" />
-                            </svg>
-                        </p>
-                    </div>
+                    {
+                        !bottomNotRequired && <div onClick={() => document.querySelector("#sidebar").classList.toggle("hidden")} className='block md:hidden border border-transparent hover:border-white cursor-pointer p-1 text-white'>
+                            <p className='flex items-center gap-1 font-bold'>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6">
+                                    <path fillRule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clipRule="evenodd" />
+                                </svg>
+                            </p>
+                        </div>
+                    }
 
                     <div className="logo flex items-center border border-transparent hover:border-white cursor-pointer py-1 select-none">
                         <Link href="/">
@@ -29,17 +35,19 @@ const Header = ({ bottomNotRequired }) => {
                         </Link>
                     </div>
 
-                    <div className='text-white text-xs hidden lg:flex flex-col items-center border border-transparent hover:border-white cursor-pointer py-1 select-none px-1'>
-                        <p>Deliver to</p>
-                        <p className='font-bold text-sm flex'>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                            </svg> Bangladesh
-                        </p>
-                    </div>
+                    {
+                        !bottomNotRequired && <div className='text-white text-xs hidden lg:flex flex-col items-center border border-transparent hover:border-white cursor-pointer py-1 select-none px-1'>
+                            <p>Deliver to</p>
+                            <p className='font-bold text-sm flex'>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                </svg> Bangladesh
+                            </p>
+                        </div>
+                    }
 
-                    <div className="search hidden md:flex items-center h-10 flex-grow rounded-md bg-orange-300 focus-within:border-orange-500 focus-within:border-2 mx-4 lg:mx-8">
+                    <div className="search hidden md:flex items-center h-10 flex-grow rounded-md bg-orange-300 focus-within:border-yellow-500 focus-within:border-2 mx-4 lg:mx-8">
                         <div
                             onClick={() => document.querySelector("#dropdown-select").classList.toggle("hidden")}
                             className='bg-gray-200 cursor-pointer hover:bg-gray-300 border-r border-gray-400 h-full rounded-l-md hidden lg:flex items-center p-3 text-xs select-none'>
@@ -91,34 +99,36 @@ const Header = ({ bottomNotRequired }) => {
                     </div>
 
                     {/* Others */}
-                    <div className="others text-white flex items-center justify-end text-xs space-x-8 whitespace-nowrap relative w-[65%] sm:w-3/4 md:w-auto">
-                        <Link href="/signin">
-                            <div className='border border-transparent hover:border-white cursor-pointer py-1 select-none px-1'>
-                                <p>Hello, Sign In</p>
-                                <p className='font-bold text-sm hidden lg:block'>Accounts &amp; Lists</p>
+                    {
+                        !bottomNotRequired && <div className="others text-white flex items-center justify-end text-xs space-x-8 whitespace-nowrap relative w-[65%] sm:w-3/4 md:w-auto">
+                            <Link href="/signin">
+                                <div className='border border-transparent hover:border-white cursor-pointer py-1 select-none px-1'>
+                                    <p>Hello, {user !== null ? user.email : "Sign In"}</p>
+                                    <p className='font-bold text-sm hidden lg:block'>Accounts &amp; Lists</p>
+                                </div>
+                            </Link>
+                            <div className='hidden lg:block border border-transparent hover:border-white cursor-pointer py-1 select-none px-1'>
+                                <p>Returns</p>
+                                <p className='font-bold text-sm'>&amp; Orders</p>
                             </div>
-                        </Link>
-                        <div className='hidden lg:block border border-transparent hover:border-white cursor-pointer py-1 select-none px-1'>
-                            <p>Returns</p>
-                            <p className='font-bold text-sm'>&amp; Orders</p>
-                        </div>
 
-                        <div className='flex items-center flex-col border border-transparent hover:border-white cursor-pointer py-1 select-none px-1'>
-                            <span className='font-bold text-base text-orange-400 -m-1 -mr-1 md:mr-4'>0</span>
-                            <div className='flex items-center font-bold'>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-8">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                                </svg>
+                            <div className='flex items-center flex-col border border-transparent hover:border-white cursor-pointer py-1 select-none px-1'>
+                                <span className='font-bold text-base text-orange-400 -m-1 -mr-1 md:mr-4'>0</span>
+                                <div className='flex items-center font-bold'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-8">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                                    </svg>
 
-                                <span className='self-end hidden md:block'>Cart</span>
+                                    <span className='self-end hidden md:block'>Cart</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
 
                 {/* Header Bottom */}
                 {
-                    !bottomNotRequired && <div className='bg-[#232f3e] flex items-center p-1 px-3 text-white text-sm font-medium'>
+                    !bottomNotRequired && <div className='bg-[#232f3e] flex items-center p-1 px-3 text-white text-sm font-medium overflow-hidden'>
                         {/* Bottom Left */}
                         <div onClick={() => document.querySelector("#sidebar").classList.toggle("hidden")} className='hidden md:block border border-transparent hover:border-white cursor-pointer p-1 mr-3 select-none'>
                             <p className='flex items-center gap-1 font-bold'>

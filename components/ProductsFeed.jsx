@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Product from "./Product";
 
-function ProductsFeed({ products }) {
+function ProductsFeed({ products, home }) {
 
     const scroll = (direction, index) => {
         let products_scrollbar = document.querySelectorAll(".products_scrollbar")[index]
@@ -52,6 +52,7 @@ function ProductsFeed({ products }) {
                                     products.filter(item => item.category.name === scrollCard.category).slice(scrollCard.cardStart, scrollCard.cardEnd).map(({ id, title, price, description, category: { name }, images, rating }) => (
                                         <Product
                                             key={id}
+                                            id={id}
                                             title={title}
                                             price={price}
                                             description={description}
@@ -67,6 +68,7 @@ function ProductsFeed({ products }) {
                                     products.filter(item => item.category.name === scrollCard.category).map(({ id, title, price, description, category: { name }, images, rating }) => (
                                         <Product
                                             key={id}
+                                            id={id}
                                             title={title}
                                             price={price}
                                             description={description}
@@ -95,6 +97,7 @@ function ProductsFeed({ products }) {
                         products.slice(card.start, card.end).map(({ id, title, price, description, category: { name }, images, rating }) => (
                             <Product
                                 key={id}
+                                id={id}
                                 title={title}
                                 price={price}
                                 description={description}
@@ -157,7 +160,7 @@ function ProductsFeed({ products }) {
     };
 
     return (
-        <div className="mt-[-203px] relative top-0 left-0 right-0">
+        <div className={`${home && "mt-[-203px] relative top-0 left-0 right-0"}`}>
 
             <ProductStructure card={{ start: 0, end: 5, special: true }} />
 

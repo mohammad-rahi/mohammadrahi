@@ -2,17 +2,20 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useReducer, useRef } from "react";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/router";
+import { addDoc, collection } from "firebase/firestore";
 
 const SET_ERROR = "SET_ERROR";
+const SET_LOADING = "SET_LOADING";
 
 const initialState = {
     name: "",
     email: "",
     password: "",
     error: "",
+    loading: false,
 }
 
 const reducer = (state, action) => {
@@ -23,7 +26,12 @@ const reducer = (state, action) => {
                 error: action.payload
             }
             break;
-
+        case SET_LOADING:
+            return {
+                ...state,
+                loading: action.payload
+            }
+            break;
         default:
             return state;
             break;
@@ -45,17 +53,39 @@ function Register() {
 
     const handleCreateAccount = (event) => {
         event.preventDefault();
+
+        dispatch({
+            type: SET_LOADING,
+            payload: true
+        })
+
         if (nameRef.current.value && emailRef.current.value && passwordRef.current.value && rePasswordRef.current.value) {
             if (passwordRef.current.value.length >= 6 && passwordRef.current.value === rePasswordRef.current.value) {
                 createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
                     .then((userCredential) => {
-                        userCredential.user.displayName = nameRef.current.value;
-                        // console.log(userCredential)
-                        router.push("/");
-                        dispatch({
-                            type: SET_ERROR,
-                            payload: ""
-                        });
+                        if (userCredential) {
+                            addDoc(collection(db, "users"), {
+                                name: nameRef.current.value,
+                                email: emailRef.current.value,
+                                password: passwordRef.current.value,
+                                photoURL: "",
+
+                            })
+                                .then((res) => {
+                                    if (res) {
+                                        router.push("/");
+                                        dispatch({
+                                            type: SET_ERROR,
+                                            payload: ""
+                                        });
+
+                                        dispatch({
+                                            type: SET_LOADING,
+                                            payload: false
+                                        });
+                                    }
+                                })
+                        }
                     })
                     .catch((error) => {
                         if (error.message === "Firebase: Error (auth/email-already-in-use).") {
@@ -147,7 +177,7 @@ function Register() {
                                         className="border transition focus:outline-none border-gray-400 px-2 py-1 text-sm rounded"
                                     />
                                 </div>
-                                <button type="submit" className="border border-gray-400 rounded text-sm py-[5px] w-full mt-2 bg-yellow-400 hover:bg-yellow-500">Create Account</button>
+                                <button type="submit" className={`border border-gray-400 rounded text-sm py-[5px] w-full mt-2 bg-yellow-400 hover:bg-yellow-500 ${state.loading && "opacity-50"}`}>{state.loading ? "Creating account..." : "Create Account"}</button>
 
                                 <p className="text-xs mt-4">By continuing, you agree to Amazon&apos;s <span className="text-sky-500 hover:text-red-600 hover:underline cursor-pointer">Conditions of Use</span> and <span className="text-sky-500 hover:text-red-600 hover:underline cursor-pointer">Privacy Notice</span>.</p>
 
