@@ -6,8 +6,8 @@ import ProductsFeed from '../components/ProductsFeed'
 import Footer from '../components/Footer'
 import { ProductsContext } from '../context/ProductsContext'
 
-const index = () => {
-  const { products } = useContext(ProductsContext);
+const index = ({ products }) => {
+  // const { products } = useContext(ProductsContext);
 
   return (
     <>
