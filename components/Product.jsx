@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-function Product({ id, title, price, description, category, image, rating, fluid }) {
+function Product({ id, title, price, description, category, image, rating, fluid, home }) {
     const router = useRouter();
 
     return (
@@ -23,9 +23,11 @@ function Product({ id, title, price, description, category, image, rating, fluid
                         />
                     </figure>
 
-                    <div>
-                        <p>{description}</p>
-                    </div>
+                    {
+                        !home && <div>
+                            <p>{description}</p>
+                        </div>
+                    }
 
                     <div
                         className="hidden md:block w-full text-blue-500 hover:text-red-500 hover:underline cursor-pointer"

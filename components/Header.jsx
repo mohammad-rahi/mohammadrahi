@@ -1,11 +1,15 @@
+import { signOut } from 'firebase/auth'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
+import { auth } from '../firebase'
 import Sidebar from './Sidebar'
 
 const Header = ({ bottomNotRequired }) => {
     const { user } = useContext(AuthContext);
+    const router = useRouter();
 
     return (
         <header>
@@ -101,18 +105,34 @@ const Header = ({ bottomNotRequired }) => {
                     {/* Others */}
                     {
                         !bottomNotRequired && <div className="others text-white flex items-center justify-end text-xs space-x-8 whitespace-nowrap relative w-[65%] sm:w-3/4 md:w-auto">
-                            <Link href="/signin">
-                                <div className='border border-transparent hover:border-white cursor-pointer py-1 select-none px-1'>
-                                    <p>Hello, {user !== null ? user.email : "Sign In"}</p>
+                            <div className='relative tooltip'>
+                                <div
+                                    onClick={() => router.push("/signin")}
+                                    onMouseOver={() => document.querySelector(".tooltiptext").classList.toggle("lg:flex")}
+                                    className='border border-transparent hover:border-white cursor-pointer py-1 select-none px-1'>
+                                    <p>Hello, {user ? user.email : "Sign In"}</p>
                                     <p className='font-bold text-sm hidden lg:block'>Accounts &amp; Lists</p>
                                 </div>
-                            </Link>
+                                <div className='bg-white text-black hidden flex-col items-center justify-center px-2 pb-2 absolute top-12 rounded-sm shadow-md tooltiptext z-10'>
+                                    {
+                                        user ? <>
+                                            <button className='bg-yellow-400 hover:bg-yellow-500 w-full text-sm p-1 font-semibold border border-yellow-700 rouned-md text-gray-600 my-2' onClick={() => router.push("/signin")}>Sign in</button>
+                                            <p>New customer? <span className='text-sky-500 cursor-pointer hover:text-red-600' onClick={() => router.push("/register")}>Start here.</span></p>
+                                        </> : <>
+                                            <button className='bg-yellow-400 hover:bg-yellow-500 w-full text-sm p-1 font-semibold border border-yellow-700 rouned-md text-gray-600 my-2' onClick={() => signOut(auth)}>Log out</button>
+                                        </>
+                                    }
+                                </div>
+                                <div>
+
+                                </div>
+                            </div>
                             <div className='hidden lg:block border border-transparent hover:border-white cursor-pointer py-1 select-none px-1'>
                                 <p>Returns</p>
                                 <p className='font-bold text-sm'>&amp; Orders</p>
                             </div>
 
-                            <div className='flex items-center flex-col border border-transparent hover:border-white cursor-pointer py-1 select-none px-1'>
+                            <div onClick={() => router.push("/cart")} className='flex items-center flex-col border border-transparent hover:border-white cursor-pointer py-1 select-none px-1'>
                                 <span className='font-bold text-base text-orange-400 -m-1 -mr-1 md:mr-4'>0</span>
                                 <div className='flex items-center font-bold'>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-8">

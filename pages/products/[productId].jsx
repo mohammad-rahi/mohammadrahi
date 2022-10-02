@@ -9,6 +9,7 @@ import Footer from "../../components/Footer";
 function ProductDetail() {
     const { query: { productId } } = useRouter();
     let product = products.find(item => item.id === parseInt(productId));
+    const [openModal, setOpenModal] = useState(false);
 
     const changeImage = (imageURL) => {
         document.querySelector("#productImage").src = imageURL;
@@ -47,16 +48,33 @@ function ProductDetail() {
                                         }
                                     </div>
                                     <h1 className="lg:hidden text-xl text-gray-700 my-4">{product.title}</h1>
-                                    <figure className="flex lg:block justify-center items-center">
-                                        <Image
-                                            id="productImage"
-                                            src={product.images[0]}
-                                            alt={product.title}
-                                            width={500}
-                                            height={500}
-                                            objectFit="cover"
-                                        />
-                                    </figure>
+                                    {
+                                        openModal && <div className="lg:hidden figure_overlay fixed top-0 left-0 bottom-0 right-0 bg-black z-20 flex items-center justify-center">
+                                            <span className="bg-white fixed top-2 left-2 p-1 px-2 rounded font-medium cursor-pointer" onClick={() => setOpenModal(false)}>&lang; Back</span>
+                                            <figure className="relative w-[90vw] h-[80vh]">
+                                                <Image
+                                                    id="productImage"
+                                                    src={product.images[0]}
+                                                    alt={product.title}
+                                                    layout="fill"
+                                                    objectFit="cover"
+                                                />
+                                            </figure>
+                                        </div>
+                                    }
+                                    <div className="flex lg:block justify-center items-center">
+                                        <figure className="relative h-fit w-fit">
+                                            <div onClick={() => setOpenModal(true)} className="lg:hidden absolute left-0 right-0 bottom-0 top-0 z-10 cursor-zoom-in lg:cursor-default"></div>
+                                            <Image
+                                                id="productImage"
+                                                src={product.images[0]}
+                                                alt={product.title}
+                                                width={500}
+                                                height={500}
+                                                objectFit="cover"
+                                            />
+                                        </figure>
+                                    </div>
                                 </div>
                                 <div className="flex flex-col-reverse xl:flex-row gap-4 justify-center w-full lg:w-[50vw] xl:w-[55vw]">
                                     <div className="w-[90%] mx-auto">
@@ -90,7 +108,7 @@ function ProductDetail() {
                                         </ul>
                                     </div>
                                     <div>
-                                        <h1 className="xl:hidden text-3xl text-gray-700">{product.title}</h1>
+                                        <h1 className="hidden lg:block xl:hidden text-3xl text-gray-700">{product.title}</h1>
                                         <hr className="xl:hidden bg-gray-200 h-1 my-4" />
                                         <div className="xl:border border-gray-500 rounded-md lg:p-4">
                                             <p className="text-4xl lg:text-3xl font-semibold"><sup className="text-base">$</sup><span>{product.price}</span><sup className="text-lg">99</sup></p>
