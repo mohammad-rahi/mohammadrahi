@@ -1,4 +1,4 @@
-![Mohammad Rahi](https://github.com/mohammad-rahi/mohammad-rahi/blob/main/assets/img/readme_img.jfif)
+<!-- ![Mohammad Rahi](https://github.com/mohammad-rahi/mohammad-rahi/blob/main/assets/img/readme_img.jfif) -->
 
 ## Hi there 👋, Greetings from Mohammad Rahi
 
