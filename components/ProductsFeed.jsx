@@ -8,7 +8,7 @@ function ProductsFeed({ products, home }) {
     const ProductStructure = ({ card, scrollCard1, scrollCard2, scrollCard3 }) => {
         return (
             <>
-                <div className={`card_wrapper grid-flow-dense grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1 md:gap-5 px-2 md:px-7 ${card.special ? "card_special flex whitespace-nowrap overflow-x-auto overflow-y-hidden md:grid mb-1 md:mb-5" : "grid"}`}>
+                <div className={`card_wrapper grid-flow-dense grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1 md:gap-5 px-2 md:px-7 ${card.special ? "card_special whitespace-nowrap overflow-x-auto overflow-y-hidden md:grid mb-1 md:mb-5" : "grid"}`}>
                     {
                         products.slice(card.start, card.end).map(({ id, title, price, description, category: { name }, images, rating }) => (
                             <Product
@@ -21,6 +21,7 @@ function ProductsFeed({ products, home }) {
                                 image={images}
                                 rating={rating}
                                 home={home}
+                                special={card.special}
                             />
                         ))
                     }

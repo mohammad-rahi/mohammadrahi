@@ -75,7 +75,7 @@
 
   .products_scrollbar::-webkit-scrollbar,
   .card_special::-webkit-scrollbar {
-    height: .5rem !important;
+    height: 5px !important;
   }
 
   .products_scrollbar:hover::-webkit-scrollbar-thumb,
