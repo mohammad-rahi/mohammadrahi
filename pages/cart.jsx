@@ -4,7 +4,7 @@ import Footer from "../components/Footer"
 import Header from "../components/Header"
 import ScrollCard from "../components/ScrollCard"
 
-function cart() {
+function Cart() {
     const router = useRouter();
 
     return (
@@ -45,4 +45,4 @@ function cart() {
     )
 }
 
-export default cart
+export default Cart

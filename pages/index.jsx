@@ -6,7 +6,7 @@ import ProductsFeed from '../components/ProductsFeed'
 import Footer from '../components/Footer'
 import { ProductsContext } from '../context/ProductsContext'
 
-const index = ({ products }) => {
+const Index = ({ products }) => {
   // const { products } = useContext(ProductsContext);
 
   return (
@@ -45,4 +45,4 @@ export async function getServerSideProps(context) {
   }
 }
 
-export default index
+export default Index
