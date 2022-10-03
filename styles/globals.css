@@ -5,10 +5,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary-background: #2C3333;
-  --secondary-background: #395B64;
-  --primary-color: #E7F6F2;
-  --secondary-color: #A5C9CA;
+  --bg-primary: #2C3333;
+  --bg-secondary: #395B64;
+  --text-primary: #E7F6F2;
+  --text-secondary: #A5C9CA;
 }
 
 * {
@@ -29,9 +29,21 @@ a {
 }
 
 body {
-  background-color: var(--primary-background);
-  color: var(--primary-color);
+  background: var(--bg-primary);
+  color: var(--text-primary);
   font-family: 'Open Sans', sans-serif;
+}
+
+code{
+  color: #5e818b !important;
+}
+
+.card{
+  box-shadow: 2px 2px 8px rgba(255, 255, 255, .1);
+}
+
+.card:not(:last-child){
+  margin-bottom: 2rem;
 }
 
 /* @media (prefers-color-scheme: dark) {
