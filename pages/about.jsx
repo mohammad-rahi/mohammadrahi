@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Code from '../components/Code'
 
-const about = () => {
+const About = () => {
     return (
         <>
             <Head>
@@ -32,4 +32,4 @@ const about = () => {
     )
 }
 
-export default about
+export default About

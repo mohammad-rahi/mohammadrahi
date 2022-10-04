@@ -4,7 +4,7 @@ import React from 'react'
 import Code from '../components/Code';
 // import Code from '../components/Code'
 
-function skills() {
+function Skills() {
   const skillLists = {
     HTML: [
       {
@@ -125,6 +125,10 @@ function skills() {
         <title>Mohammad Rahi: Skills</title>
       </Head>
 
+      <Code element="h2">
+        <h2 className='text-5xl lg:text-6xl text-transparent bg-gradient-to-r from-primary-text to-secondary-text bg-clip-text'>My <span className='border-b-4 border-secondary-bg'>Skills</span></h2>
+      </Code>
+
       <div className='flex flex-col justify-center w-full min-h-screen py-2'>
         <Code element="skills">
           <div className='py-2'>
@@ -139,4 +143,4 @@ function skills() {
   )
 }
 
-export default skills
+export default Skills

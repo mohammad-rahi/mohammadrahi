@@ -1,7 +1,19 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
-import Button from "../components/Button"
+import dynamic from "next/dynamic"
+import { Suspense } from "react"
 import Code from "../components/Code"
+import Button from "../components/Button";
+
+const About = dynamic(() => import("./about"), {
+  suspense: true
+});
+const Skills = dynamic(() => import("./skills"), {
+  suspense: true
+});
+const Work = dynamic(() => import("./work"), {
+  suspense: true
+});
 
 const Index = () => {
   const router = useRouter();
@@ -22,7 +34,7 @@ const Index = () => {
       <div className="flex flex-col w-full h-[85vh] justify-center">
 
         <Code element="h1" close={false}>
-          <h1 className="text-5xl lg:text-7xl font-bold">Hi, <br /> I&apos;m Rahi, <br /> <span className="text-transparent bg-gradient-to-r from-primary-text to-secondary-text bg-clip-text">Front-End Developer</span>
+          <h1 className="text-5xl xl:text-7xl font-bold">Hi, <br /> I&apos;m Rahi, <br /> <span className="text-transparent bg-gradient-to-r from-primary-text to-secondary-text bg-clip-text">Front-End Developer</span>
             <Code element="h1" open={false} />
           </h1>
         </Code>
@@ -32,11 +44,17 @@ const Index = () => {
             that make a difference.</p>
         </Code>
 
-        <div className="ml-6">
+        <div className="ml-3">
           <Button onClick={() => router.push("/contact")}>Contact Me!</Button>
         </div>
 
       </div>
+
+      <Suspense fallback={<h1 className="text-4xl font-bold text-center text-transparent bg-gradient-to-r from-primary-text to-secondary-text bg-clip-text">Loading...</h1>}>
+        <About />
+        <Skills />
+        <Work />
+      </Suspense>
     </>
   )
 }

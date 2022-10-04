@@ -49,8 +49,8 @@ function Sidebar({ isClicked, setIsClicked }) {
 
     return (
         <>
-            <div onClick={falseHandler} className={`${isClicked && "right-0 bg-[#00000080]"} fixed top-0 left-0 bottom-0 z-10 transition md:hidden`}></div>
-            <div className={`${isClicked ? "left-0" : "-left-56"} fixed top-0 min-h-screen w-52 shadow-md bg-secondary-bg font-light z-20 sidebar_itmes`}>
+            <div onClick={falseHandler} className={`${isClicked && "right-0 bg-[#00000080]"} fixed top-0 left-0 bottom-0 z-40 transition lg:hidden`}></div>
+            <div className={`${isClicked ? "left-0" : "-left-56"} lg:left-0 fixed top-0 min-h-screen w-52 shadow-md bg-secondary-bg font-light z-50 my_transition`}>
                 <div className="overflow-y-auto">
                     <ul className="flex flex-col select-none">
                         <li
