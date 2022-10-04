@@ -16,7 +16,7 @@ function Layout({ children }) {
         <>
             <Sidebar isClicked={clicked} setIsClicked={setClicked} />
 
-            <div className={`lg:ml-52 my_transition transition max-w-7xl mx-auto relative`}>
+            <div className={`lg:ml-52 my_transition transition relative`}>
 
                 <header className='lg:hidden w-screen min-h-12 fixed top-0 left-0 bg-secondary-bg z-10 shadow px-4 py-1'>
                     <div className='flex items-center justify-between'>
@@ -36,7 +36,7 @@ function Layout({ children }) {
                     </div>
                 </header>
 
-                <main className='mt-12 py-1'>
+                <main className='mt-12 lg:mt-0 py-1 max-w-7xl mx-auto'>
                     {/* Opening Html and Body tags */}
                     <Code element="html" close={false} br />
                     <div className="ml-4 inline-block">

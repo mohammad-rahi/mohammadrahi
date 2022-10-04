@@ -39,7 +39,7 @@ function Work() {
       </Head>
 
       <Code element="h2">
-        <h2 className='text-5xl lg:text-6xl text-transparent bg-gradient-to-r from-primary-text to-secondary-text bg-clip-text'>Work<span className='border-b-4 border-secondary-bg'>s</span></h2>
+        <h2 className='text-5xl lg:text-6xl text-transparent bg-gradient-to-r from-primary-text to-secondary-text bg-clip-text'>My <span className='border-b-4 border-secondary-bg'>Works</span></h2>
       </Code>
 
       <div className='flex flex-col justify-center w-full min-h-screen py-2'>

@@ -14,6 +14,9 @@ const Skills = dynamic(() => import("./skills"), {
 const Work = dynamic(() => import("./work"), {
   suspense: true
 });
+const Education = dynamic(() => import("./education"), {
+  suspense: true
+});
 
 const Index = () => {
   const router = useRouter();
@@ -54,6 +57,7 @@ const Index = () => {
         <About />
         <Skills />
         <Work />
+        <Education />
       </Suspense>
     </>
   )
