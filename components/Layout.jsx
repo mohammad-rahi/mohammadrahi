@@ -29,14 +29,14 @@ function Layout({ children }) {
                                 </svg>
                             }
                         </div>
-                        <div className='whitespace-nowrap w-full text-center'>
-                            <p onClick={() => router.push("/")} className="text-xl font-medium cursor-pointer">Mohammad Rahi</p>
+                        <div className='whitespace-nowrap w-full flex flex-col items-center'>
+                            <p onClick={() => router.push("/")} className="text-xl font-medium cursor-pointer w-fit">Mohammad Rahi</p>
                             <p className="text-transparent bg-gradient-to-r from-primary-text to-secondary-text bg-clip-text text-sm">Front-End Developer</p>
                         </div>
                     </div>
                 </header>
 
-                <main className='mt-12'>
+                <main className='mt-12 py-1'>
                     {/* Opening Html and Body tags */}
                     <Code element="html" close={false} br />
                     <div className="ml-4 inline-block">
