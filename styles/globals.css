@@ -46,6 +46,17 @@ code{
   margin-bottom: 2rem;
 }
 
+@media only screen and (max-width: 380px) {
+  .skillsCard{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}
+
+.sidebar_itmes{
+  transition-duration: 150ms !important;
+}
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

@@ -98,17 +98,18 @@ function skills() {
       <div className='card p-6'>
         <h3 className='text-2xl '>{title}</h3>
         <span className='h-[1px] block bg-secondary-text my-4'></span>
-        <div className='flex gap-32 items-center px-12 py-8'>
+        <div className='skillsCard grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-12 lg:gap-24 xl:gap-32 py-4 xl:py-8'>
           {
             skillLists[title].map(skill => (
-              <div key={skill.id} className="text-center">
-                <Image
-                  src={skill.imageURL}
-                  alt={skill.text}
-                  width={100}
-                  height={100}
-                  className={`${skill.background && "bg-primary-text rounded-full"}`}
-                />
+              <div key={skill.id} className="flex flex-col justify-center items-center gap-1">
+                <figure className='relative w-[80px] h-[80px] md:w-[100px] md:h-[100px]'>
+                  <Image
+                    src={skill.imageURL}
+                    alt={skill.text}
+                    layout="fill"
+                    className={`${skill.background && "bg-primary-text rounded-full"}`}
+                  />
+                </figure>
                 <p>{skill.text}</p>
               </div>
             ))

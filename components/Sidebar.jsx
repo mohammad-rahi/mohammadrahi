@@ -1,7 +1,8 @@
+import { useState } from "react";
 import Image from "next/image"
 import { useRouter } from "next/router"
 
-function Sidebar() {
+function Sidebar({ isClicked, setIsClicked }) {
     const router = useRouter();
 
     const sidebarItem = [
@@ -42,12 +43,15 @@ function Sidebar() {
         },
     ];
 
-    return (
+    const falseHandler = () => {
+        setIsClicked(false)
+    };
 
-        <div id="sidebar">
-            <div className="absolute top-4 right-4">X</div>
-            <div className="fixed top-0 left-0 h-screen w-52 shadow bg-secondary-bg font-light">
-                <div>
+    return (
+        <>
+            <div onClick={falseHandler} className={`${isClicked && "right-0 bg-[#00000080]"} fixed top-0 left-0 bottom-0 z-10 transition md:hidden`}></div>
+            <div className={`${isClicked ? "left-0" : "-left-56"} fixed top-0 min-h-screen w-52 shadow-md bg-secondary-bg font-light z-20 sidebar_itmes`}>
+                <div className="overflow-y-auto">
                     <ul className="flex flex-col select-none">
                         <li
                             onClick={() => router.push("/")}
@@ -101,7 +105,7 @@ function Sidebar() {
                     </ul>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

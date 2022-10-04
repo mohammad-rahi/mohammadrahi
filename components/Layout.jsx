@@ -3,10 +3,27 @@ import Code from './Code'
 import Sidebar from './Sidebar'
 
 function Layout({ children }) {
+    const [clicked, setClicked] = React.useState(false);
+
+    const clickeHandler = () => {
+        setClicked((prev) => !prev)
+    };
+
     return (
         <>
-            <Sidebar />
-            <div className="ml-52 max-w-7xl p-4">
+            <Sidebar isClicked={clicked} setIsClicked={setClicked} />
+
+            <div className={`${clicked && "md:ml-52"} max-w-7xl mx-auto p-4 relative`}>
+
+                <div onClick={clickeHandler} className={`absolute top-4 right-4 cursor-pointer transition z-20`}>
+                    {
+                        clicked ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg> : <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5" />
+                        </svg>
+                    }
+                </div>
 
                 {/* Opening Html and Body tags */}
                 <Code element="html" close={false} br />
