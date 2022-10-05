@@ -90,7 +90,7 @@ function Work() {
                   </a>
                 </div>
                 <div style={{ flex: ".5" }} className='hidden md:flex justify-center items-start'>
-                  <a href={project.demoLink} target="_blank" rel="noreferrer" className='work_link overflow-hidden relative flex justify-center items-center cursor-pointer'>
+                  <a href={project.demoLink} target="_blank" rel="noreferrer" className='work_link overflow-hidden relative flex justify-center items-center cursor-pointer rounded-md'>
                     <span className='viewLay pointer-events-none w-16 h-16 rounded-full bg-secondary-bg absolute z-10 flex justify-center items-center'>View</span>
                     <figure className='work_image relative opacity-75 hover:opacity-100 transition hover:scale-105'>
                       <Image

@@ -30,7 +30,7 @@ const About = () => {
                     </Code>
                     <br />
                     <a href="https://github.com/mohammad-rahi" target="_blank" rel="noreferrer" className='py-4'>
-                        <Button className="mt-4"><i class="fa-brands fa-github mr-2"></i> My Github</Button>
+                        <Button buttonStyle="btn_outline" className="mt-4"><i className="fa-brands fa-github mr-2"></i> My Github</Button>
                     </a>
                 </div>
                 {/* </Code> */}

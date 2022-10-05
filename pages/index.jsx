@@ -17,6 +17,15 @@ const Work = dynamic(() => import("./work"), {
 const Education = dynamic(() => import("./education"), {
   suspense: true
 });
+const Contact = dynamic(() => import("./contact"), {
+  suspense: true
+});
+const Blog = dynamic(() => import("./blog"), {
+  suspense: true
+});
+const Resume = dynamic(() => import("./resume"), {
+  suspense: true
+});
 
 const Index = () => {
   const router = useRouter();
@@ -48,7 +57,9 @@ const Index = () => {
         </Code>
 
         <div className="ml-3">
-          <Button onClick={() => router.push("/contact")}>Contact Me!</Button>
+          <Button
+          buttonStyle="btn_outline"
+            onClick={() => router.push("/contact")}>Contact Me!</Button>
         </div>
 
       </div>
@@ -57,7 +68,10 @@ const Index = () => {
         <About />
         <Skills />
         <Work />
-        <Education />
+        {/* <Education /> */}
+        <Contact />
+        <Blog />
+        <Resume />
       </Suspense>
     </>
   )

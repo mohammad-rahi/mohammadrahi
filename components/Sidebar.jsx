@@ -21,11 +21,11 @@ function Sidebar({ isClicked, setIsClicked }) {
             text: "Work",
             imageURL: "/images/work.png",
         },
-        {
-            id: 4,
-            text: "Education",
-            imageURL: "/images/mortarboard.png",
-        },
+        // {
+        //     id: 4,
+        //     text: "Education",
+        //     imageURL: "/images/mortarboard.png",
+        // },
         {
             id: 5,
             text: "Contact",
@@ -50,7 +50,7 @@ function Sidebar({ isClicked, setIsClicked }) {
     return (
         <>
             <div onClick={falseHandler} className={`${isClicked && "right-0 bg-[#00000080]"} fixed top-0 left-0 bottom-0 z-40 transition lg:hidden`}></div>
-            <div className={`${isClicked ? "left-0" : "-left-56"} lg:left-0 fixed top-0 min-h-screen w-52 shadow-md bg-secondary-bg font-light z-50 my_transition`}>
+            <div className={`${isClicked ? "left-0" : "-left-56"} lg:left-0 fixed top-0 min-h-screen w-52 shadow-md bg-secondary-bg font-light z-50 my_transition sidebar`}>
                 <div className="overflow-y-auto">
                     <ul className="flex flex-col select-none">
                         <li

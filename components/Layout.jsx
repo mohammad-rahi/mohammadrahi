@@ -17,8 +17,7 @@ function Layout({ children }) {
             <Sidebar isClicked={clicked} setIsClicked={setClicked} />
 
             <div className={`lg:ml-52 my_transition transition relative`}>
-
-                <header className='lg:hidden w-screen min-h-12 fixed top-0 left-0 bg-secondary-bg z-10 shadow px-4 py-1'>
+                <header className='lg:hidden w-screen min-h-12 fixed top-0 left-0 z-10 shadow px-4 py-1 header'>
                     <div className='flex items-center justify-between'>
                         <div onClick={clickeHandler} className={`z-50 cursor-pointer transition`}>
                             {
