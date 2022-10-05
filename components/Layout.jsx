@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import React from 'react'
 import Code from './Code'
+import Footer from './Footer';
 import Sidebar from './Sidebar'
 
 function Layout({ children }) {
@@ -52,6 +53,7 @@ function Layout({ children }) {
                         <Code element="body" open={false} />
                     </div>
                     <Code element="html" open={false} />
+                    {/* <Footer /> */}
                 </main>
 
             </div>

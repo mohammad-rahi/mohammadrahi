@@ -43,7 +43,7 @@ const Index = () => {
         <title>Mohammad Rahi</title>
       </Head>
 
-      <div className="flex flex-col w-full h-[85vh] justify-center">
+      <div className="flex flex-col w-full min-h-[80vh] justify-center">
 
         <Code element="h1" close={false}>
           <h1 className="text-5xl xl:text-7xl font-bold">Hi, <br /> I&apos;m Rahi, <br /> <span className="text-transparent bg-gradient-to-r from-primary-text to-secondary-text bg-clip-text">Front-End Developer</span>

@@ -131,11 +131,13 @@ function Skills() {
 
       <div className='flex flex-col justify-center w-full min-h-screen py-2'>
         <Code element="skills">
-          <div className='py-2'>
-            <Card title="HTML" />
-            <Card title="CSS" />
-            <Card title="JavaScript" />
-            <Card title="Other" />
+          <div className='flex flex-col justify-center items-center w-full min-h-screen py-2'>
+            <div className='py-2'>
+              <Card title="HTML" />
+              <Card title="CSS" />
+              <Card title="JavaScript" />
+              <Card title="Other" />
+            </div>
           </div>
         </Code>
       </div>

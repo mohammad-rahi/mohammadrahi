@@ -26,7 +26,7 @@ function contact() {
             action="mailto:mohammadrahi003@gmail.com"
             encType='text/plain'
             method='POST'>
-            <div className='grid grid-cols-2 gap-4 mb-8'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8'>
               <div className='border focus-within:border-2 border-primary-text hover:border-secondary-text focus-within:border-secondary-text flex flex-col'>
                 <label htmlFor="name" className='p-1 select-none text-sm'>Name</label>
                 <input type="text" id='name' name='name' className='bg-transparent focus:outline-none pl-1' />
