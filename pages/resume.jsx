@@ -23,7 +23,7 @@ function resume() {
             className='w-full min-h-[85vh]'
           ></iframe>
 
-          <div className='mt-8 grid sm:grid-cols-2 gap-4'>
+          <div className='mt-8 flex flex-wrap justify-center items-center gap-4'>
             <a href="https://drive.google.com/file/d/14suQgQIyBm4aZT8IBIXMpfrI-lGaP_Re/view" target="_blank" rel="noreferrer" title='View on Drive'>
               <Button buttonStyle="btn_outline">
                 <span className='flex gap-2 items-center'> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5">
