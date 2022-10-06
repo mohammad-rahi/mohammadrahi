@@ -23,14 +23,24 @@ function resume() {
             className='w-full min-h-[85vh]'
           ></iframe>
 
-          <div className='mt-8 flex gap-4'>
+          <div className='mt-8 grid sm:grid-cols-2 gap-4'>
             <a href="https://drive.google.com/file/d/14suQgQIyBm4aZT8IBIXMpfrI-lGaP_Re/view" target="_blank" rel="noreferrer" title='View on Drive'>
               <Button buttonStyle="btn_outline">
-                View on Drive
+                <span className='flex gap-2 items-center'> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                </svg>
+                  View on Drive</span>
               </Button>
             </a>
             <a href="/images/Mohammad Rahi.pdf" download title='Download Resume'>
-              <Button>Download</Button>
+              <Button>
+                <span className='flex gap-2 items-center'>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                  </svg>
+                  Download
+                </span>
+              </Button>
             </a>
           </div>
         </Code>

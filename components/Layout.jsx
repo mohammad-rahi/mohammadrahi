@@ -53,9 +53,9 @@ function Layout({ children }) {
                         <Code element="body" open={false} />
                     </div>
                     <Code element="html" open={false} />
-                    {/* <Footer /> */}
                 </main>
-
+                
+                <Footer />
             </div>
         </>
     )

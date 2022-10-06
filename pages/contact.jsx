@@ -19,7 +19,7 @@ function contact() {
         <p className='text-xl'>I’m interested in freelance opportunities – especially ambitious or large projects. However, if you have other request or question, don’t hesitate to use the form.</p>
       </Code>
 
-      <div className="flex flex-col w-full h-[85vh] justify-center">
+      <div className="flex flex-col w-full min-h-[85vh] justify-center">
         <Code element="contact">
           <form
             className='w-[90%] max-w-4xl mx-auto'

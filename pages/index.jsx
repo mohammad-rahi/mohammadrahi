@@ -70,7 +70,7 @@ const Index = () => {
         <Work />
         {/* <Education /> */}
         <Contact />
-        <Blog />
+        {/* <Blog /> */}
         <Resume />
       </Suspense>
     </>

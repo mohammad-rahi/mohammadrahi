@@ -31,11 +31,11 @@ function Sidebar({ isClicked, setIsClicked }) {
             text: "Contact",
             imageURL: "/images/contacts.png",
         },
-        {
-            id: 6,
-            text: "Blog",
-            imageURL: "/images/blog.png",
-        },
+        // {
+        //     id: 6,
+        //     text: "Blog",
+        //     imageURL: "/images/blog.png",
+        // },
         {
             id: 7,
             text: "Resume",
@@ -51,7 +51,7 @@ function Sidebar({ isClicked, setIsClicked }) {
         <>
             <div onClick={falseHandler} className={`${isClicked && "right-0 bg-[#00000080]"} fixed top-0 left-0 bottom-0 z-40 my_transition lg:hidden`}></div>
             <div className={`${isClicked ? "left-0" : "-left-56"} lg:left-0 fixed top-0 min-h-screen w-52 shadow bg-secondary-bg font-light z-50 my_transition sidebar`}>
-                <div className="overflow-y-auto">
+                <div className="">
                     <ul className="flex flex-col select-none">
                         <li
                             onClick={() => router.push("/")}
@@ -78,8 +78,8 @@ function Sidebar({ isClicked, setIsClicked }) {
                                 target="_blank"
                                 title="Github"
                                 rel="noreferrer"
-                                className="w-8 h-8 flex justify-center items-center">
-                                <i class="fa-brands fa-github text-xl hover:text-[#A5C9CA]"></i>
+                                className="w-6 h-6 flex justify-center items-center">
+                                <i class="fa-brands fa-github text-lg hover:text-[#A5C9CA]"></i>
                             </a>
                         </li>
                         <li>
@@ -88,8 +88,8 @@ function Sidebar({ isClicked, setIsClicked }) {
                                 target="_blank"
                                 title="Linkedin"
                                 rel="noreferrer"
-                                className="w-8 h-8 flex justify-center items-center">
-                                <i class="fa-brands fa-linkedin-in text-xl hover:text-[#A5C9CA]"></i>
+                                className="w-6 h-6 flex justify-center items-center">
+                                <i class="fa-brands fa-linkedin-in text-lg hover:text-[#A5C9CA]"></i>
                             </a>
                         </li>
                         <li>
@@ -98,8 +98,18 @@ function Sidebar({ isClicked, setIsClicked }) {
                                 target="_blank"
                                 title="Medium"
                                 rel="noreferrer"
-                                className="w-8 h-8 flex justify-center items-center">
-                                <i class="fa-brands fa-medium text-xl hover:text-[#A5C9CA]"></i>
+                                className="w-6 h-6 flex justify-center items-center">
+                                <i class="fa-brands fa-medium text-lg hover:text-[#A5C9CA]"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="mailto:mohammadrahi003@gmail.com"
+                                target="_blank"
+                                title="E-mail"
+                                rel="noreferrer"
+                                className="w-6 h-6 flex justify-center items-center">
+                                <i className="fa-solid fa-envelope text-lg hover:text-[#A5C9CA]"></i>
                             </a>
                         </li>
                     </ul>
