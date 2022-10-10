@@ -1,9 +1,20 @@
-<!-- ![Mohammad Rahi](https://github.com/mohammad-rahi/mohammad-rahi/blob/main/assets/img/readme_img.jfif) -->
+![Mohammad Rahi](https://raw.githubusercontent.com/mohammad-rahi/mohammad-rahi/main/public/images/Mohammad%20Rahi_mohammadrahi-portfolio.vercel.app.png)
 
 ## Hi there 👋, Greetings from Mohammad Rahi
 
-I'm a skilled front-end developer. I'm passionate to work with ReactJS, Redux, NextJS, Tailwind CSS, and Firebase. I love to read articles.
+I'm a Front-End Developer. I describe myself as a passionate developer who loves coding, open source, and the web platform ❤️.
 
+I like to create and contribute to open source projects. That helps me to learn a ton of new stuff, grow as a developer and support other open source projects. Also I enjoy writing technical things ✍️ at my blog and medium.
+
+### My preferred weapons of choice: 👇
+
+- JavaScript
+- NextJS / ReactJS
+- Redux / Context
+- Firebase
+- CSS / SCSS / Tailwind CSS
+
+### More info
 - 🌱 I’m currently learning NextJS, I believe that everyday is a learning opportunity.
 - 📫 How to reach me: mohammadrahi003@gmail.com
 - 💬 Ask me about Html5, CSS3, JavaScript, React, Redux, NextJS, Tailwind CSS, Bootstrap, Ajax, JSON, JQuery.
